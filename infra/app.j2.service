@@ -1,0 +1,8 @@
+[Unit]
+Description=My super awesome application
+
+[Service]
+ExecStart=/bin/sh -c "VERSION=1.0 /root/confidence/app/app"
+
+[Install]
+WantedBy=multi-user.target

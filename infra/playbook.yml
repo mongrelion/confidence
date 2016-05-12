@@ -1,0 +1,25 @@
+---
+- hosts: appservers
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure that git is installed
+      apt: name=git state=present
+
+    - name: ensure that golang is installed
+      apt: name=golang state=present
+
+    - name: ensure that the application is cloned
+      git: repo=https://github.com/mongrelion/confidence.git dest=/root/confidence
+
+    - name: ensure the application is compiled
+      shell: go build . chdir=/root/confidence/app
+
+    - name: ensure systemd unit file is present
+      template: src=app.j2.service dest=/lib/systemd/system/app.service
+
+    - name: reload unit files
+      command: systemctl daemon-reload
+
+    - name: ensure application is running
+      service: name=app state=restarted
