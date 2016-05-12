@@ -10,10 +10,8 @@ import (
 var version string
 
 func main() {
-	message := fmt.Sprintf("Running version %s", GetVersion())
-
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, message)
+		fmt.Fprintf(w, GreetingMessage())
 	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
@@ -21,4 +19,8 @@ func main() {
 
 func GetVersion() string {
 	return os.Getenv("VERSION")
+}
+
+func GreetingMessage() string {
+	return fmt.Sprintf("Running version %s", GetVersion())
 }
