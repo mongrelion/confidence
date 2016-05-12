@@ -6,7 +6,7 @@
 
 ### Getting the application
 ```
-$ git clone git@github.com:mongrelion/confidence.git
+$ git clone https://github.com/mongrelion/confidence.git
 ```
 
 ### Compiling the application
