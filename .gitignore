@@ -1,2 +1,5 @@
 # Ignore dist files
 /app/app
+
+# Ignore Ansible retry files
+/infra/*.retry
