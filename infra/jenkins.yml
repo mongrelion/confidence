@@ -17,3 +17,7 @@
 
     - name: ensure that golang is installed
       apt: name=golang state=present
+
+    # We use Ansible for deploying into production.
+    - name: ensure that ansible is installed
+      apt: name=ansible state=present
