@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    # FIXME: Currently adds the server's fingerprint even if it is already present in the known_hosts file.
+    - name: gather servers SSH fingerprint
+      shell: ssh-keyscan -t rsa {{ item }} >> ~/.ssh/known_hosts
+      with_items: "{{ groups.all }}"
