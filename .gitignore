@@ -1,8 +1,5 @@
-# Ignore dist files
-/app/app
-
 # Ignore Ansible retry files
-/infra/*.retry
+/*.retry
 
 # Ignore hosts file
-/infra/hosts
+/hosts
