@@ -10,10 +10,10 @@
       apt: name=golang state=present
 
     - name: ensure that the application is cloned
-      git: repo=https://github.com/mongrelion/confidence.git dest=/root/confidence
+      git: repo=https://github.com/mongrelion/gapp.git dest=/opt/gapp
 
     - name: ensure the application is compiled
-      shell: go build . chdir=/root/confidence/app
+      shell: go build . chdir=/opt/gapp
 
     - name: ensure systemd unit file is present
       template: src=app.j2.service dest=/lib/systemd/system/app.service
