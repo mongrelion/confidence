@@ -3,3 +3,6 @@
 
 # Ignore Ansible retry files
 /infra/*.retry
+
+# Ignore hosts file
+/infra/hosts

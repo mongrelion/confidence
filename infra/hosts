@@ -1,5 +1,0 @@
-[appservers]
-178.62.195.141 ansible_ssh_user=root
-
-[jenkins]
-188.166.12.177 ansible_ssh_user=root
