@@ -21,3 +21,11 @@
     # We use Ansible for deploying into production.
     - name: ensure that ansible is installed
       apt: name=ansible state=present
+      register: jenkins_installed
+
+    - name: get jenkins password
+      command: cat /var/lib/jenkins/secrets/initialAdminPassword
+      register: jenkins_password
+      when: jenkins_installed.changed
+
+    - debug: var=jenkins_password.stdout
